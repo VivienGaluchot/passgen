@@ -4,6 +4,12 @@ import java.util.ArrayList;
 
 public class Generator extends Element<String>{
 	
+	public static void main(String[] args) {
+		SingRandom.init();
+		Generator gen = new Generator();
+		System.out.println(gen.getPassword(8));
+	}
+	
 	public Generator(){
 		super(null);
 		build();
@@ -19,18 +25,11 @@ public class Generator extends Element<String>{
 		return str;
 	}
 
-	public static void main(String[] args) {
-		SingRandom.init();
-		Generator gen = new Generator();
-		System.out.println(gen.getPassword(8));
-	}
-	
-	
 	public void build(){
 		
-		String[] voyStr = {"a","e","i","o","u","y","ai","au","eau"};
+		String[] voyStr = {"a","e","i","o","u","y","ai","au","eau","é","è"};
 		String[] conStr = {"b","c","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","x","z"};
-		String[] conDouble = {"ss","tt","mm","nn","ch","ff","ck","pp","cc","nm","sc","st","tr","pt","fr","cr","cl","br","bl","rr","ll"};
+		String[] conDouble = {"ss","tt","tr","mm","nn","ch","ck","sc","st","tr","pt","fr","cr","cl","br","bl"};
 		String[] syll = {"que","qua","qui","queau","queu","quo"};
 
 		ArrayList<Element<String>> voyelles = new ArrayList<Element<String>>();
@@ -77,6 +76,7 @@ public class Generator extends Element<String>{
 		}
 		
 		// Ajout des lettres
+		next.clear();
 		addAllToNext(voyelles);
 		addAllToNext(consonnes);
 		addAllToNext(syllabes);
