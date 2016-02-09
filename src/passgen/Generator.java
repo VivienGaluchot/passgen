@@ -12,7 +12,7 @@ public class Generator extends Element<String>{
 	public String getPassword(int lenght){
 		String str = "";
 		Element<String> el = getNext();
-		while(str.length()<lenght){
+		while(str.length()<lenght && el != null){
 			str += el.getValue();
 			el = el.getNext();
 		}
@@ -29,8 +29,9 @@ public class Generator extends Element<String>{
 	public void build(){
 		
 		String[] voyStr = {"a","e","i","o","u","y","ai","au","eau"};
-		String[] conStr = {"b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","z"};
+		String[] conStr = {"b","c","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","x","z"};
 		String[] conDouble = {"ss","tt","mm","nn","ch","ff","ck","pp","cc","nm","sc","st","tr","pt","fr","cr","cl","br","bl","rr","ll"};
+		String[] syll = {"que","qua","qui","queau","queu","quo"};
 
 		ArrayList<Element<String>> voyelles = new ArrayList<Element<String>>();
 		for(String str : voyStr){
@@ -50,10 +51,17 @@ public class Generator extends Element<String>{
 			consonnesDoubles.add(el);
 		}
 		
+		ArrayList<Element<String>> syllabes = new ArrayList<Element<String>>();
+		for(String str : syll){
+			Element<String> el = new Element<String>(str);
+			syllabes.add(el);
+		}
+		
 		// set des nexts
 		for(Element<String> el : voyelles){
 			el.addAllToNext(consonnes);
 			el.addAllToNext(consonnesDoubles);
+			el.addAllToNext(syllabes);
 		}
 		
 		for(Element<String> el : consonnes){
@@ -64,8 +72,13 @@ public class Generator extends Element<String>{
 			el.addAllToNext(voyelles);
 		}
 		
+		for(Element<String> el : syllabes){
+			el.addAllToNext(consonnes);
+		}
+		
 		// Ajout des lettres
 		addAllToNext(voyelles);
 		addAllToNext(consonnes);
+		addAllToNext(syllabes);
 	}
 }
