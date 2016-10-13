@@ -13,4 +13,14 @@ Generator gen = new Generator();
 System.out.println(gen.getPassword(8));
 ```
 
+Exemple de mot de passe générés :
+* keaublèquo
+* aiscyssai
+* nuquageau
+* xaucrebr
+* siquabeau
+* byritèquo
+* cique
+* queaujaisébrequa
+
 Contact : vivien.galuchot@etu.univ-amu.fr

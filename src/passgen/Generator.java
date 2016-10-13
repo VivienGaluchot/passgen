@@ -2,14 +2,7 @@ package passgen;
 
 import java.util.ArrayList;
 
-public class Generator extends Element<String>{
-	
-	public static void main(String[] args) {
-		SingRandom.init();
-		Generator gen = new Generator();
-		System.out.println(gen.getPassword(8));
-	}
-	
+public class Generator extends Element<String>{	
 	public Generator(){
 		super(null);
 		build();
@@ -80,5 +73,12 @@ public class Generator extends Element<String>{
 		addAllToNext(voyelles);
 		addAllToNext(consonnes);
 		addAllToNext(syllabes);
+	}
+	
+	// Example d'utilisation
+	public static void main(String[] args) {
+		SingRandom.init();
+		Generator gen = new Generator();
+		System.out.println(gen.getPassword(8));
 	}
 }
