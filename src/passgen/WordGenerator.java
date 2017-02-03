@@ -2,10 +2,11 @@ package passgen;
 
 import java.util.ArrayList;
 
-public class Generator extends Element<String>{	
-	public Generator(){
+public class WordGenerator extends Element<String>{	
+	public WordGenerator(){
 		super(null);
 		build();
+		SingRandom.init();
 	}
 	
 	public String getPassword(int lenght){
@@ -20,7 +21,7 @@ public class Generator extends Element<String>{
 
 	public void build(){
 		
-		String[] voyStr = {"a","e","i","o","u","y","ai","au","eau","Ã©","Ã¨"};
+		String[] voyStr = {"a","e","i","o","u","y","ai","au","eau","é","è"};
 		String[] conStr = {"b","c","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","x","z"};
 		String[] conDouble = {"ss","tt","tr","mm","nn","ch","ck","sc","st","tr","pt","fr","cr","cl","br","bl"};
 		String[] syll = {"que","qua","qui","queau","queu","quo"};
@@ -78,7 +79,7 @@ public class Generator extends Element<String>{
 	// Example d'utilisation
 	public static void main(String[] args) {
 		SingRandom.init();
-		Generator gen = new Generator();
+		WordGenerator gen = new WordGenerator();
 		System.out.println(gen.getPassword(8));
 	}
 }
