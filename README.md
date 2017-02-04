@@ -11,13 +11,8 @@ System.out.println(gen.getWord(8));
 ```
 
 Exemple de mot de passe générés :
-* keaublèquo
-* aiscyssai
-* nuquageau
-* xaucrebr
-* siquabeau
-* byritèquo
-* cique
-* queaujaisébrequa
+* evenummu
+* emaickai
+* aimmeckowonn
 
 Contact : vivien.galuchot@etu.univ-amu.fr
