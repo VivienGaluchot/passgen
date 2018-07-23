@@ -14,5 +14,3 @@ Exemple de mot de passe générés :
 * evenummu
 * emaickai
 * aimmeckowonn
-
-Contact : vivien.galuchot@etu.univ-amu.fr
